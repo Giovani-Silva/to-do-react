@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.75rem 0;
+  background: var(--gray-700);
+}
+.header svg {
+  color: var(--blue-500);
+  margin-right: 1rem;
+}
+
+.header svg line {
+  color: var(--purple-700);
+}
+.header svg circle {
+  color: var(--purple-700);
+}
+
+.header h1 span {
+  text-transform: lowercase;
+  font-size: 2.5rem;
+}
+
+.header h1 span:first-child {
+  color: var(--blue-500);
+}
+
+.header h1 span:last-child {
+  color: var(--purple-700);
+}

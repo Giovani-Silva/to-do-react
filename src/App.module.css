@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: -1.6875rem;
+}
+
+.form input {
+  padding: 1rem;
+  gap: 0.5rem;
+  width: min(100%, 39.875rem);
+  height: 3.375rem;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-600);
+  border-radius: 8px;
+}
+
+.form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 140%;
+  gap: 0.5rem;
+  width: min(100%, 5.625rem);
+  height: 3.25rem;
+  color: var(--gray-100);
+  background: var(--blue-700);
+  border-radius: 8px;
+}
