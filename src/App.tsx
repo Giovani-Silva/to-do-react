@@ -38,13 +38,13 @@ export function App() {
     },
   ]);
 
-  const completed = list.filter(item => item.completeDate).length;
+  const completed = list.filter((item) => item.completeDate).length;
   return (
     <>
       <Header />
       <Form />
       <ProgressBar tasks={list.length} completed={completed} />
-      {!list.length ? <EmptyMessage /> : <List list={list} />}
+      {!list.length ? <EmptyMessage /> : <List list={list} setList={setList} />}
     </>
   );
 }
