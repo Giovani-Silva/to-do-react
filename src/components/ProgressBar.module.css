@@ -1,0 +1,34 @@
+.nav {
+  width: min(100%, 46rem);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 4rem auto 2rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray-500);
+}
+
+.nav span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--blue-500);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav span:last-child {
+  color: var(--purple-500);
+}
+
+.nav span > small {
+  font-size: 0.875rem;
+  line-height: 140%;
+  color: var(--gray-200);
+  background: var(--gray-500);
+  padding: 0 1rem;
+  border-radius: 8px;
+}
