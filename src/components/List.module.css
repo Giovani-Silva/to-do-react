@@ -7,7 +7,7 @@
 
 .toDoList li {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 0.5rem;
   background: var(--gray-500);
@@ -18,7 +18,7 @@
   transition: background 200ms ease-in-out;
 }
 
-.toDoList li.completed {
+.complete {
   opacity: 0.4;
 }
 
@@ -33,16 +33,14 @@
 }
 
 .checkLabel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1 0 1rem;
   width: 1rem;
   height: 1rem;
+  flex: 0 0 1rem;
   border: 1px solid var(--blue-500);
   border-radius: 50%;
   cursor: pointer;
   margin-top: 0.15rem;
+  position: relative;
 }
 
 .checkInput:checked ~ .checkLabel {
@@ -56,6 +54,10 @@
   content: '\2713';
   display: inline-block;
   font-size: 0.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .checkInput:checked ~ span {
@@ -69,6 +71,7 @@
   cursor: pointer;
   margin-top: 0.15rem;
   transition: color 100ms ease-in-out;
+  margin-left: auto;
 }
 
 .delete:hover {

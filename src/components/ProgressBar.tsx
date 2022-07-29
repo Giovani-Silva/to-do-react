@@ -1,13 +1,16 @@
 import styles from './ProgressBar.module.css';
 
-export function ProgressBar() {
+export function ProgressBar({ tasks = 0, completed = 0 }) {
   return (
     <nav className={styles.nav}>
       <span>
-        Tarefas criadas <small>5</small>
+        Tarefas criadas <small>{tasks}</small>
       </span>
       <span>
-        Concluídas <small>0 de 5</small>
+        Concluídas{' '}
+        <small>
+          {completed} de {tasks}
+        </small>
       </span>
     </nav>
   );

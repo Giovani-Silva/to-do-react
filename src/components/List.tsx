@@ -1,16 +1,15 @@
 import { Trash } from 'phosphor-react';
+import { IListItem } from '../models/list.model';
 import styles from './List.module.css';
-export function List() {
+export function List({ list }) {
   return (
     <ul className={styles.toDoList}>
-      {[1, 2, 3, 4, 5].map((item) => {
+      {list.map(({ id, text, startDate, completeDate }: IListItem) => {
         return (
-          <li key="item">
-            <input className={styles.checkInput} type="checkbox" id={'check-' + item} />
-            <label className={styles.checkLabel} htmlFor={'check-' + item}></label>
-            <span className={styles.task}>
-              Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
-            </span>
+          <li key={id} className={completeDate ? styles.complete : ''}>
+            <input className={styles.checkInput} type="checkbox" id={id} checked={!!completeDate} />
+            <label className={styles.checkLabel} htmlFor={id}></label>
+            <span className={styles.task}>{text}</span>
             <button className={styles.delete} title="delete">
               <Trash size={18} />
             </button>
