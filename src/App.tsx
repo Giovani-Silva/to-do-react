@@ -14,10 +14,10 @@ export function App() {
       </form>
       <nav className={styles.nav}>
         <span>
-          Tarefas criadas <small>0</small>
+          Tarefas criadas <small>5</small>
         </span>
         <span>
-          Concluídas <small>0</small>
+          Concluídas <small>0 de 5</small>
         </span>
       </nav>
 

@@ -75,7 +75,7 @@
 .nav span > small {
   font-size: 0.875rem;
   line-height: 140%;
-  color: var(--gray-300);
+  color: var(--gray-200);
   background: var(--gray-500);
   padding: 0 1rem;
   border-radius: 8px;
