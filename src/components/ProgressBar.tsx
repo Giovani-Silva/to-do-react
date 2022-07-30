@@ -1,6 +1,11 @@
 import styles from './ProgressBar.module.css';
 
-export function ProgressBar({ tasks = 0, completed = 0 }) {
+interface ProgressBarProps {
+  tasks: number;
+  completed: number;
+}
+
+export function ProgressBar({ tasks = 0, completed = 0 }: ProgressBarProps) {
   return (
     <nav className={styles.nav}>
       <span>

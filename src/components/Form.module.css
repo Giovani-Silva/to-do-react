@@ -42,6 +42,12 @@
   filter: brightness(1);
 }
 
-.form button:hover {
+.form button:not(:disabled):hover {
   filter: brightness(1.15);
+}
+
+.form button:disabled {
+  filter: brightness(1.15);
+  background: var(--gray-600);
+  cursor: not-allowed;
 }

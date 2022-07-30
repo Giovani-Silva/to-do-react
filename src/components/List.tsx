@@ -3,7 +3,12 @@ import { Trash } from 'phosphor-react';
 import { IListItem } from '../models/list.model';
 import styles from './List.module.css';
 
-export function List(props: any) {
+interface ListProps {
+  list: IListItem[];
+  setList: React.Dispatch<React.SetStateAction<IListItem[]>>;
+}
+
+export function List(props: ListProps) {
   const { list, setList } = props;
 
   function handleToogleCheckItem(id) {
@@ -85,7 +90,7 @@ export function List(props: any) {
               </button>
             </div>
             {completeDate && <small className={styles.time}>concluído a {durationTask(completeDate)}</small>}
-            {!completeDate && <small className={styles.time}>adcionado a {durationTask(startDate)}</small>}
+            {!completeDate && <small className={styles.time}>adicionado a {durationTask(startDate)}</small>}
           </li>
         );
       })}
