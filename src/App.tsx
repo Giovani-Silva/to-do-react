@@ -24,7 +24,7 @@ export function App() {
       id: uuidv4(),
       text: 'Lorem ipsum dolor sit amet,  Duis vel sed fames integer.',
       startDate: new Date(),
-      completeDate: new Date(),
+      completeDate: new Date('07-29-2022 23:00'),
     },
     {
       id: uuidv4(),
