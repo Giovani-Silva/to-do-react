@@ -1,7 +1,8 @@
 import { ClipboardText } from 'phosphor-react';
+import React from 'react';
 import styles from './EmptyMessage.module.css';
 
-export function EmptyMessage() {
+export function EmptyMessageComponent() {
   return (
     <div className={styles.empty}>
       <ClipboardText size={56} />
@@ -10,3 +11,6 @@ export function EmptyMessage() {
     </div>
   );
 }
+
+const EmptyMessage = React.memo(EmptyMessageComponent);
+export { EmptyMessage };

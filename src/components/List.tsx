@@ -3,34 +3,18 @@ import { Trash } from 'phosphor-react';
 import { IListItem } from '../models/list.model';
 import styles from './List.module.css';
 
+type isChecked = 'on' | 'off';
+
 interface ListProps {
   list: IListItem[];
-  setList: React.Dispatch<React.SetStateAction<IListItem[]>>;
+  updateItemToDoList: (isChecked: boolean, id: string) => void;
+  removeItemToDoList: (id: string) => void;
 }
 
-export function List(props: ListProps) {
-  const { list, setList } = props;
-
-  function handleToogleCheckItem(id) {
-    const isChecked = event?.target?.checked as React.ChangeEvent<HTMLInputElement>;
-
-    const updatedList = list.map((item: IListItem) => {
-      if (isChecked && id === item.id) {
-        item.completeDate = new Date();
-      }
-
-      if (!isChecked && id === item.id) {
-        delete item.completeDate;
-      }
-
-      return item;
-    });
-    setList(updatedList);
-  }
-
-  function handleDeleteItem(id) {
-    const newList = list.filter((item: IListItem) => item.id !== id);
-    setList(newList);
+export function List({ list, updateItemToDoList, removeItemToDoList }: ListProps) {
+  function handleToogleCheckItem(id: string) {
+    const isChecked = event?.target?.checked as boolean;
+    updateItemToDoList(isChecked, id)
   }
 
   function durationTask(start: Date): string {
@@ -85,7 +69,7 @@ export function List(props: ListProps) {
               />
               <label className={styles.checkLabel} htmlFor={id}></label>
               <span className={styles.task}>{text}</span>
-              <button className={styles.delete} title="delete" onClick={() => handleDeleteItem(id)}>
+              <button className={styles.delete} title="delete" onClick={() => removeItemToDoList(id)}>
                 <Trash size={18} />
               </button>
             </div>

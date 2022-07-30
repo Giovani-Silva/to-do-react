@@ -5,24 +5,19 @@ import { IListItem } from '../models/list.model';
 import styles from './Form.module.css';
 
 interface FormProps {
-  list: IListItem[];
-  setList: React.Dispatch<React.SetStateAction<IListItem[]>>;
+  addItemToDoList: (item: IListItem) => void;
 }
 
-export function Form({ list, setList }: FormProps) {
+export function Form({ addItemToDoList }: FormProps) {
   const [text, setText] = useState('');
 
   function handleSubmit() {
     event.preventDefault();
-    console.log(text);
-    setList((state) => [
-      ...state,
-      {
-        id: uuidv4(),
-        text,
-        startDate: new Date(),
-      },
-    ]);
+    addItemToDoList({
+      id: uuidv4(),
+      text,
+      startDate: new Date(),
+    });
 
     setText('');
   }

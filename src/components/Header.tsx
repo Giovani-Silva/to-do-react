@@ -1,6 +1,8 @@
 import { Rocket } from 'phosphor-react';
+import React from 'react';
 import styles from './Header.module.css';
-export function Header() {
+function HeaderComponent() {
+  console.log(styles);
   return (
     <header className={styles.header}>
       <Rocket size={36} />
@@ -11,3 +13,6 @@ export function Header() {
     </header>
   );
 }
+
+const Header = React.memo(HeaderComponent);
+export { Header };
