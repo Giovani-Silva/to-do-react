@@ -14,7 +14,7 @@ interface ListProps {
 export function List({ list, updateItemToDoList, removeItemToDoList }: ListProps) {
   function handleToogleCheckItem(id: string) {
     const isChecked = event?.target?.checked as boolean;
-    updateItemToDoList(isChecked, id)
+    updateItemToDoList(isChecked, id);
   }
 
   function durationTask(start: Date): string {
@@ -38,7 +38,7 @@ export function List({ list, updateItemToDoList, removeItemToDoList }: ListProps
       seconds: 's',
     };
     const duration = intervalToDuration({
-      start: start,
+      start: new Date(start),
       end: new Date(),
     }) as DurationTime;
 

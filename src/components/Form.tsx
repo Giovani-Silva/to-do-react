@@ -5,6 +5,7 @@ import { IListItem } from '../models/list.model';
 import styles from './Form.module.css';
 
 interface FormProps {
+  list: IListItem[];
   addItemToDoList: (item: IListItem) => void;
 }
 

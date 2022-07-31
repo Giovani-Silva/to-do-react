@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { EmptyMessage } from './components/EmptyMessage';
 import { Form } from './components/Form';
 import { Header } from './components/Header';
 import { List } from './components/List';
 import { ProgressBar } from './components/ProgressBar';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import { IListItem } from './models/list.model';
 
 export function App() {
+  const [storedValue, setStoredValue] = useLocalStorage('toDoList', []);
   const [list, setList] = useState<IListItem[]>([]);
+
+  useEffect(() => {
+    setList(storedValue);
+  }, []);
+
+  useEffect(() => {
+    setStoredValue(list);
+  }, [list]);
 
   function addItemToDoList(item: IListItem) {
     setList((state) => [...state, item]);
