@@ -49,5 +49,6 @@
 .form button:disabled {
   filter: brightness(1.15);
   background: var(--gray-600);
+  color: var(--gray-400);
   cursor: not-allowed;
 }
