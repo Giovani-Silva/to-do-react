@@ -1,4 +1,5 @@
-import { intervalToDuration } from 'date-fns';
+import { formatDistanceToNow, intervalToDuration } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import { Trash } from 'phosphor-react';
 import { IListItem } from '../models/list.model';
 import styles from './List.module.css';
@@ -17,43 +18,7 @@ export function List({ list, updateItemToDoList, removeItemToDoList }: ListProps
     updateItemToDoList(isChecked, id);
   }
 
-  function durationTask(start: Date): string {
-    interface DurationTime {
-      years?: number;
-      months?: number;
-      weeks?: number;
-      days?: number;
-      hours?: number;
-      minutes?: number;
-      seconds?: number;
-    }
-
-    const label = {
-      years: 'ano(zzzz)',
-      months: 'mezzz(ezz)',
-      weeks: 'semana(s)',
-      days: 'd',
-      hours: 'h',
-      minutes: 'm',
-      seconds: 's',
-    };
-    const duration = intervalToDuration({
-      start: new Date(start),
-      end: new Date(),
-    }) as DurationTime;
-
-    let result = '';
-
-    for (let key in duration) {
-      if (!result && duration[key as keyof DurationTime]) {
-        result += `${duration[key as keyof DurationTime]}${label[key as keyof DurationTime]} `;
-      }
-    }
-
-    if (!result) result = '0s';
-    return result;
-  }
-
+  
   return (
     <ul className={styles.toDoList}>
       {list.map(({ id, text, startDate, completeDate }: IListItem) => {
@@ -73,8 +38,16 @@ export function List({ list, updateItemToDoList, removeItemToDoList }: ListProps
                 <Trash size={18} />
               </button>
             </div>
-            {completeDate && <small className={styles.time}>concluído a {durationTask(completeDate)}</small>}
-            {!completeDate && <small className={styles.time}>adicionado a {durationTask(startDate)}</small>}
+            {completeDate && (
+              <small className={styles.time}>
+                concluído {formatDistanceToNow(new Date(completeDate).getTime(), { addSuffix: true, locale: ptBR })}
+              </small>
+            )}
+            {!completeDate && (
+              <small className={styles.time}>
+                adicionado {formatDistanceToNow(new Date(startDate).getTime(), { addSuffix: true, locale: ptBR })}
+              </small>
+            )}
           </li>
         );
       })}
