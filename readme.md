@@ -1,13 +1,17 @@
 # To-do App
 
-Desenvolver uma aplicação de controle de tarefas no estilo **to-do list**, que contém as seguintes funcionalidades:
+![todo](/src/assets/images/screen2.png)
+
+## Desenvolver uma aplicação de controle de tarefas no estilo **to-do list**, que contém as seguintes funcionalidades:
 
 - Adicionar uma nova tarefa
 - Marcar e desmarcar uma tarefa como concluída
 - Remover uma tarefa da listagem
 - Mostrar o progresso de conclusão das tarefas
 
-Conceitos:
+![app](/src/assets/images/screen1.png)
+
+## Conceitos:
 
 - Estados
 - Imutabilidade do estado
