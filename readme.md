@@ -14,7 +14,6 @@
 ## Conceitos:
 
 - Estados
-- Imutabilidade do estado
 - Listas e chaves no ReactJS
 - Propriedades
 - Componentização
