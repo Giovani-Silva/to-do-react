@@ -13,7 +13,7 @@ export function Form({ addItemToDoList }: FormProps) {
   const [text, setText] = useState('');
 
   function handleSubmit() {
-    event.preventDefault();
+    if( window.event ) window.event.preventDefault();
     addItemToDoList({
       id: uuidv4(),
       text,

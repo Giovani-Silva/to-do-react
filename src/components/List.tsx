@@ -1,4 +1,4 @@
-import { formatDistanceToNow, intervalToDuration } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Trash } from 'phosphor-react';
 import { IListItem } from '../models/list.model';
@@ -14,11 +14,14 @@ interface ListProps {
 
 export function List({ list, updateItemToDoList, removeItemToDoList }: ListProps) {
   function handleToogleCheckItem(id: string) {
-    const isChecked = event?.target?.checked as boolean;
+    let isChecked = false;
+    if (window.event) {
+      isChecked = (window.event.target as HTMLInputElement).checked;
+    }
+
     updateItemToDoList(isChecked, id);
   }
 
-  
   return (
     <ul className={styles.toDoList}>
       {list.map(({ id, text, startDate, completeDate }: IListItem) => {
